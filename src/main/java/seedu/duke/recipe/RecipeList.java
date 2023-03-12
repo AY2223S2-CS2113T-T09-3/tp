@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RecipeList {
     private ArrayList<Recipe> recipes;
 
-    IngredientList beefBurgerIngredients = new IngredientList();
+
     Ingredient groundBeef = new Ingredient("ground beef", 1);
     Ingredient salt = new Ingredient("salt", 1);
     Ingredient blackPepper = new Ingredient("black pepper", 0.5);
@@ -18,6 +18,7 @@ public class RecipeList {
     Ingredient toppings = new Ingredient("toppings (any of your choice", 0);
 
     public IngredientList getBeefBurgerIngredients() {
+        IngredientList beefBurgerIngredients = new IngredientList();
         beefBurgerIngredients.add(groundBeef);
         beefBurgerIngredients.add(salt);
         beefBurgerIngredients.add(blackPepper);
@@ -28,7 +29,7 @@ public class RecipeList {
 
         return beefBurgerIngredients;
     }
-    InstructionList beefBurgerInstructions = new InstructionList();
+
     Instruction firstStep = new Instruction("In a large bowl, mix the ground beef, salt, pepper, Worcestershire" +
             " sauce and garlic powder until just combined");
     Instruction secondStep = new Instruction("Divide the mixture into 4 equal portions and shape each portion " +
@@ -42,6 +43,7 @@ public class RecipeList {
             " serves two");
 
     public InstructionList getBeefBurgerInstructions() {
+        InstructionList beefBurgerInstructions = new InstructionList();
         beefBurgerInstructions.add(firstStep);
         beefBurgerInstructions.add(secondStep);
         beefBurgerInstructions.add(thirdStep);
