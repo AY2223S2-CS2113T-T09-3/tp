@@ -3,12 +3,13 @@ package seedu.duke.parser;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class CommandArgumentsTest {
     @Test
     public void parseEmpty() {
         CommandArguments args = new CommandArguments(new CommandTokens(""));
-        assertEquals(args.getPositionalArgument(), null);
+        assertNull(args.getPositionalArgument());
     }
 
     @Test

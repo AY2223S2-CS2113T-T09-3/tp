@@ -5,7 +5,6 @@ import seedu.duke.DukeSession;
 import seedu.duke.ingredient.Ingredient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static seedu.duke.command.misc.AddCommand.findIndex;
 
 class AddCommandTest {
     @Test

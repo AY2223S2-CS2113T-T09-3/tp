@@ -10,7 +10,6 @@ import seedu.duke.ingredient.Ingredient;
  */
 public class AddCommand extends ExecutableCommand {
 
-    private static int indexOfExistingIngredient;
     String name;
     String amount;
 
@@ -35,7 +34,7 @@ public class AddCommand extends ExecutableCommand {
         dukeSession.getIngredientStorage().writeIngredientToFile(ingredient);
     }
 
-    public static int findIndex(DukeSession dukeSession, String name) {
+    public int findIndex(DukeSession dukeSession, String name) {
         for (int i = 0; i < dukeSession.getIngredients().size(); i += 1) {
             if (dukeSession.getIngredients().get(i).getName().equals(name)) {
                 return i;
@@ -53,7 +52,7 @@ public class AddCommand extends ExecutableCommand {
             if (name.isBlank()) {
                 throw new DukeException("OOPS, name cannot be blank");
             }
-            indexOfExistingIngredient = findIndex(dukeSession, name);
+            int indexOfExistingIngredient = findIndex(dukeSession, name);
             if (indexOfExistingIngredient == -1) {
                 addNewIngredient(dukeSession, quantity, name);
             } else {

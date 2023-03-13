@@ -4,7 +4,7 @@ import seedu.duke.DukeSession;
 import seedu.duke.command.ExecutableCommand;
 
 /**
- * Represents the easter egg "hello world" command.
+ * Represents the Easter egg "hello world" command.
  */
 public class HelloWorldCommand extends ExecutableCommand {
     String name;

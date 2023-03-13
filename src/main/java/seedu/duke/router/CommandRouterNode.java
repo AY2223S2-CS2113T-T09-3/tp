@@ -25,7 +25,6 @@ public class CommandRouterNode implements Routable {
 
     /**
      * Returns the resolved <code>ExecutableCommandFactory</code> by the <code>Routable</code> object.
-     *
      * <code>resolve</code> will iterate through each <code>RouteDescription</code> child which matches the next token.
      * The <code>ExecutableCommandFactory</code> to be resolved will be returned.
      * Iteration occurs in the same order as the routes were added.
