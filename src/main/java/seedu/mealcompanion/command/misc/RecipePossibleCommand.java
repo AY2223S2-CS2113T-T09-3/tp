@@ -39,7 +39,7 @@ public class RecipePossibleCommand extends ExecutableCommand {
      * @param recipe the recipe to be made
      * @param fridgeIngredients the list of ingredients used to make the recipe
      * @param allergens the list of allergens specified by the user
-     * @return true if the recipe can be made using the list of ingredients and does not contain any allergens, false otherwise
+     * @return true if the recipe can be made using the list of ingredients without any allergens, false otherwise
      */
     private boolean canMakeRecipe(Recipe recipe, IngredientList fridgeIngredients, List<String> allergens) {
         IngredientList recipeIngredients = recipe.getIngredients();
