@@ -67,21 +67,14 @@ public class MealCompanionSession {
         this.ingredients = new IngredientList();
         this.recipes = new RecipeList();
         this.ingredientStorage = new IngredientStorage();
-
-        // ask for allergens
         this.allergens = new ArrayList<>();
-        System.out.print("Please enter allergens (comma-separated): ");
-        String allergensStr = ui.getNextCommandString();
-        String[] allergenArr = allergensStr.split(",");
-        for (String allergen : allergenArr) {
-            this.allergens.add(allergen.trim());
-        }
     }
 
-
-    public List<String> getAllergens() {
-        return allergens;
+    public void setAllergens(List<String> allergens) {
+        this.allergens.clear();
+        this.allergens.addAll(allergens);
     }
+
 
 
     /**

@@ -6,8 +6,8 @@ import seedu.mealcompanion.ingredient.Ingredient;
 import seedu.mealcompanion.ingredient.IngredientList;
 import seedu.mealcompanion.recipe.Recipe;
 import seedu.mealcompanion.recipe.RecipeList;
+import java.util.Arrays;
 import java.util.List;
-
 
 /**
  * Represents the "recipe possible" command.
@@ -54,8 +54,6 @@ public class RecipePossibleCommand extends ExecutableCommand {
         return true;
     }
 
-
-
     /**
      * List all recipes that can be made using ingredients that are available and do not contain any allergens.
      *
@@ -63,9 +61,12 @@ public class RecipePossibleCommand extends ExecutableCommand {
      */
     @Override
     public void execute(MealCompanionSession mealCompanionSession) {
+        mealCompanionSession.getUi().printMessage("Please enter allergens (comma-separated): ");
+        String allergensStr = mealCompanionSession.getUi().getNextCommandString();
+        List<String> allergens = Arrays.asList(allergensStr.split(","));
+        mealCompanionSession.setAllergens(allergens);
         IngredientList fridgeIngredients = mealCompanionSession.getIngredients();
         RecipeList recipes = mealCompanionSession.getRecipes();
-        List<String> allergens = mealCompanionSession.getAllergens();
         int index = 1;
         mealCompanionSession.getUi().printMessage("Here are the recipe(s) that you can make:");
         for (Recipe recipe : recipes.getRecipes()) {
@@ -76,5 +77,5 @@ public class RecipePossibleCommand extends ExecutableCommand {
         }
     }
 
-
 }
+
