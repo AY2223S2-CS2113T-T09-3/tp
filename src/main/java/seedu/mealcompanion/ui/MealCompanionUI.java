@@ -20,15 +20,18 @@ public class MealCompanionUI {
      * @return the next command string.
      */
     public String getNextCommandString() {
-        return this.scanner.nextLine();
+        if (scanner.hasNextLine()) {
+            return scanner.nextLine().trim();
+        } else {
+            return "help"; // return default command if there is no input
+        }
     }
+
 
     /**
      * Prints the welcome message.
      */
-    public void printIntroduction() {
-        System.out.println("Welcome to Meal Companion!");
-    }
+    public void printIntroduction() {System.out.println("Welcome to Meal Companion!"); }
 
     /**
      * Prints the provided message.

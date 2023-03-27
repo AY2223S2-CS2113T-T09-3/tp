@@ -15,6 +15,8 @@ import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Arrays;
+
 class RecipePossibleCommandTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
@@ -37,6 +39,9 @@ class RecipePossibleCommandTest {
     @Test
     public void recipePossibleAndRecipeNotPossible() throws MealCompanionException {
         MealCompanionSession mealCompanionSession = new MealCompanionSession();
+// add allergens to mealCompanionSession
+        mealCompanionSession.setAllergens(Arrays.asList("milk", "eggs"));
+
         // Add ingredients to mealCompanionSession's ingredients
         mealCompanionSession.getIngredients().add(new Ingredient("bread", 2.0));
         mealCompanionSession.getIngredients().add(new Ingredient("ham", 1.0));
@@ -67,7 +72,8 @@ class RecipePossibleCommandTest {
         if (osName.contains("Windows")) {
             newline = "\r\n";
         }
-        String predictedOutput = "Here are the recipe(s) that you can make:" + newline + "1. ham sandwich" + newline;
+        String predictedOutput = "Please enter allergens (comma-separated): " + newline +
+                "Here are the recipe(s) that you can make:" + newline + "1. ham sandwich" + newline;
         assertEquals(predictedOutput, outContent.toString());
     }
 }
