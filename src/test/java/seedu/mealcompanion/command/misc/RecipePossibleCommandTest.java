@@ -39,7 +39,7 @@ class RecipePossibleCommandTest {
     @Test
     public void recipePossibleAndRecipeNotPossible() throws MealCompanionException {
         MealCompanionSession mealCompanionSession = new MealCompanionSession();
-// add allergens to mealCompanionSession
+        // add allergens to mealCompanionSession
         mealCompanionSession.setAllergens(Arrays.asList("milk", "eggs"));
 
         // Add ingredients to mealCompanionSession's ingredients
