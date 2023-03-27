@@ -75,6 +75,6 @@ public class RecipePossibleCommand extends ExecutableCommand {
                 index++;
             }
         }
+        mealCompanionSession.getUi().printMessage(""); // add a new line
     }
-
 }

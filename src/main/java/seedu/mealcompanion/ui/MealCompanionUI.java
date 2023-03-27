@@ -31,7 +31,9 @@ public class MealCompanionUI {
     /**
      * Prints the welcome message.
      */
-    public void printIntroduction() {System.out.println("Welcome to Meal Companion!"); }
+    public void printIntroduction() {
+        System.out.println("Welcome to Meal Companion!");
+    }
 
     /**
      * Prints the provided message.
