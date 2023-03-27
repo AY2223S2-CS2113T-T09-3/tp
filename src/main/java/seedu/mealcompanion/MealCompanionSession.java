@@ -23,6 +23,9 @@ import seedu.mealcompanion.recipe.RecipeList;
 import seedu.mealcompanion.router.CommandRouterNode;
 import seedu.mealcompanion.storage.IngredientStorage;
 import seedu.mealcompanion.ui.MealCompanionUI;
+import java.util.List;
+import java.util.ArrayList;
+
 
 
 import java.util.Scanner;
@@ -54,11 +57,13 @@ public class MealCompanionSession {
                             .route("list", new IngredientsListCommandFactory())
                             .route("search", new IngredientsSearchCommandFactory())
                     );
+
     private final IngredientList ingredients;
     private final RecipeList recipes;
     private final MealCompanionUI ui;
     private final MealCompanionControlFlow controlFlow;
     private final IngredientStorage ingredientStorage;
+    private final List<String> allergens;
 
 
 
@@ -69,7 +74,15 @@ public class MealCompanionSession {
         this.ingredients = new IngredientList();
         this.recipes = new RecipeList();
         this.ingredientStorage = new IngredientStorage();
+        this.allergens = new ArrayList<>();
     }
+
+    public void setAllergens(List<String> allergens) {
+        this.allergens.clear();
+        this.allergens.addAll(allergens);
+    }
+
+
 
     /**
      * Returns the <code>MealCompanionUI</code> for the current session.
@@ -120,7 +133,7 @@ public class MealCompanionSession {
         while (this.controlFlow.shouldRun()) {
             String nextCommand = ui.getNextCommandString();
             CommandTokens tokens = new CommandTokens(nextCommand);
-            ExecutableCommandFactory commandFactory = this.COMMAND_TREE.resolve(tokens);
+            ExecutableCommandFactory commandFactory = MealCompanionSession.COMMAND_TREE.resolve(tokens);
 
             if (commandFactory == null) {
                 System.out.println("Not a command!");
